@@ -1,4 +1,4 @@
-package com.rest.api;
+package com.playground.api;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
