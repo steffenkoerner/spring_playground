@@ -2,36 +2,29 @@ package com.playground.api.controller;
 
 
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
+
 
 @RestController
 @RequestMapping("/api")
 public class RESTController {
 
-    /**
-     * This function handles calls to /api and /api/{name}. Could also be done with a separate controller.
-     * Then the if/else statements are not needed.
-     */
-    @GetMapping(value = { "/hello", "/hello/{name}" })
-    public ResponseTransfer SayHelloWithName(@PathVariable(required = false) String name){
 
-        if(name == null)
-            return new ResponseTransfer("Hello");
-        else
-            return new ResponseTransfer("Hello " + name);
+//    @GetMapping("/book/{id}")
+//    public Book bookById(@PathVariable(required = true) String id) {
+//        return Book.getById(id);
+//    }
+//
+
+
+    @GetMapping("/hello")
+    public ResponseTransfer SayHello(){
+        return new ResponseTransfer("Hello");
     }
 
-    @GetMapping(value = "/content", produces = MediaType.APPLICATION_XML_VALUE)
-    @ResponseBody
-
-    public ResponseTransfer postResponseXmlContent() {
-        return new ResponseTransfer("XML Content!");
-    }
-
-    @GetMapping(value = "/content", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseTransfer postResponseJsonContent() {
-        return new ResponseTransfer("JSON Content!");
+    @GetMapping("/hello/{name}")
+    public ResponseTransfer SayHelloWithName(@PathVariable(required = true) String name){
+        return new ResponseTransfer("Hello " + name);
     }
 
     @PostMapping
