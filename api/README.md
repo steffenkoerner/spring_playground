@@ -1,4 +1,4 @@
-# REST AND GraphQL
+# REST AND GraphQL (Work in Progress)
 
 This is a short overview of REST and GraphQL Endpoints. Most people are already familiar with REST as it is at the 
 moment the most commonly used endpoint. A less known one is GraphQL. 
