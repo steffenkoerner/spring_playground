@@ -25,6 +25,6 @@ public class GraphQLBookController {
 
     @SchemaMapping
     public Author author(Book book) {
-        return authorService.getAuthorById(book.getAuthorId());
+        return authorService.GetAuthorById(book.getAuthorId());
     }
 }

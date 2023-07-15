@@ -2,20 +2,24 @@ package com.playground.api.service;
 
 
 import com.playground.api.entity.Book;
+import com.playground.api.repository.BookRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class BookService {
 
+    @Autowired
+    BookRepository bookRepository;
     public Book getBookById(String id) {
-        return books.stream().filter(book -> book.getId().equals(id)).findFirst().orElse(null);
+
+        Optional<Book> book = bookRepository.findById(id);
+        return book.get();
+
     }
-    private static List<Book> books = Arrays.asList(
-            new Book("book-1", "Harry Potter and the Philosopher's Stone", 223, "author-1"),
-            new Book("book-2", "Moby Dick", 635, "author-2"),
-            new Book("book-3", "Interview with the vampire", 371, "author-3")
-    );
+
 }

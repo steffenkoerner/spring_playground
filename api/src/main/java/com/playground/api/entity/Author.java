@@ -1,19 +1,26 @@
 package com.playground.api.entity;
 
-import java.util.Arrays;
-import java.util.List;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
+@Entity
+@Table(name = "AUTHOR")
 public class Author {
 
+    @Id
     private String id;
+
     private String firstName;
     private String lastName;
+
 
     public Author(String id, String firstName, String lastName) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
     }
+    public Author() {}
 
     public String getId() {
         return id;

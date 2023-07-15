@@ -27,13 +27,13 @@ public class RESTBookController {
 
     @GetMapping("/author/{id}")
     public Author authorById(@PathVariable(required = true) String id) {
-        return authorService.getAuthorById(id);
+        return authorService.GetAuthorById(id);
     }
 
     @GetMapping("/bookWithAuthor/{id}")
     public BookWithAuthor bookWithDetailsById(@PathVariable(required = true) String id) {
         Book book = bookService.getBookById(id);
-        Author author = authorService.getAuthorById(book.getAuthorId());
+        Author author = authorService.GetAuthorById(book.getAuthorId());
 
         BookWithAuthor bookWithAuthor = new BookWithAuthor(book,author);
 

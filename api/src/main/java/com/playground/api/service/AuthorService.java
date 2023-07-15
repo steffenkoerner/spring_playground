@@ -1,23 +1,30 @@
 package com.playground.api.service;
 
+import com.playground.api.repository.AuthorRepository;
 import com.playground.api.entity.Author;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 
 @Service
 public class AuthorService {
 
-    private static List<Author> authors = Arrays.asList(
-            new Author("author-1", "Joanne", "Rowling"),
-            new Author("author-2", "Herman", "Melville"),
-            new Author("author-3", "Anne", "Rice")
-    );
+    @Autowired
+    AuthorRepository authorRepository;
+    public List GetAllAuthors() {
+        List authors = new ArrayList();
+        authorRepository.findAll().forEach(author -> authors.add(author));
+        return authors;
+    }
 
-    public Author getAuthorById(String id) {
-        return authors.stream().filter(author -> author.getId().equals(id)).findFirst().orElse(null);
+    public Author GetAuthorById(String id) {
+        Optional<Author> author = authorRepository.findById(id);
+        return author.get();
     }
 
 }

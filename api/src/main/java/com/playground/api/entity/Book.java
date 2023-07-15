@@ -1,10 +1,14 @@
 package com.playground.api.entity;
 
-import java.util.Arrays;
-import java.util.List;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
+@Entity
+@Table(name = "Book")
 public class Book {
 
+    @Id
     private String id;
     private String name;
     private int pageCount;
@@ -16,6 +20,8 @@ public class Book {
         this.pageCount = pageCount;
         this.authorId = authorId;
     }
+
+    public Book() {}
 
     public String getId() {
         return id;
