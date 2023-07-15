@@ -9,7 +9,7 @@ With its opinionated defaults and auto-configuration capabilities, Spring Boot m
 
 ## Projects
 
-### API
+### [API](api/README.md)
 In the api folder, you will find an implementation of REST and GraphQL endpoints. This project showcases how to build APIs using Spring Boot. The REST implementation follows the traditional request-response model, while the GraphQL implementation leverages the power of the GraphQL query language for flexible data fetching.
 
 ### Topics Coming Soon
